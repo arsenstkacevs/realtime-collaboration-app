@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class FileDownloadService {
   downloadFile(data: any, fileName: string): void {
-    const jsonContent = JSON.stringify(data);
-    const blob = new Blob([jsonContent], { type: 'application/json' });
+    console.log(data); // Log the original data
+
+    const blob = new Blob([data], { type: 'application/json' });
     const link = document.createElement('a');
 
     link.href = window.URL.createObjectURL(blob);

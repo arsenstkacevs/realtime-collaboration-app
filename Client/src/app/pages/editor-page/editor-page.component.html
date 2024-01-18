@@ -26,10 +26,12 @@
               <ngx-codemirror
                 [(ngModel)]="fileContent"
                 [options]="{
-                        lineNumbers: true,
-                        mode: 'application/json',
-                        theme: 'material',
-                      }"
+                  lineNumbers: true,
+                  mode: 'application/json',
+                  theme: 'material',
+                  matchBrackets: true,
+                  lineWrapping: true,
+                }"
                 (ngModelChange)="updateFileContent()"
               ></ngx-codemirror>
 
