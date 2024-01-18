@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { tableHeadTitles } from '../../../../models/models';
 
 @Component({
   selector: '[app-table-head]',
@@ -9,5 +10,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './table-head.component.scss',
 })
 export class TableHeadComponent {
-  @Input() tableHeadTitles: string[];
+  tableHeadTitles = tableHeadTitles;
 }

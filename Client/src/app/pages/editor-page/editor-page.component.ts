@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
-import { Collaborator } from '../../models/collaborator';
+
+import { File, Collaborator } from '../../models/models';
 import { EditorService } from '../../services/editor-service/editor.service';
 import { FileDownloadService } from '../../services/file-download-service/file-download.service';
-import { File } from '../../models/file';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { UserComponent } from './components/user/user.component';
 import { TableHeadComponent } from './components/table-head/table-head.component';
@@ -33,7 +34,6 @@ export class EditorPageComponent {
   fileContent: string;
   userName: string;
   collaborators: Collaborator[];
-  tableHeadTitles: string[] = ['File name', 'Last changed', ''];
 
   constructor(
     private editorService: EditorService,

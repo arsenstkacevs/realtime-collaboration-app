@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Collaborator } from '../../../../models/collaborator';
+import { Collaborator } from '../../../../models/models';
 
 @Component({
   selector: 'app-collaborators',

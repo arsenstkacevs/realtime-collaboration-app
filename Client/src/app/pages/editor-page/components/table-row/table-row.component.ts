@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { File } from '../../../../models/file';
-import { Collaborator } from '../../../../models/collaborator';
+import { File, Collaborator } from '../../../../models/models';
 
 @Component({
   selector: '[app-table-row]',
