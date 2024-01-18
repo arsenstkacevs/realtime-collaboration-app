@@ -1,18 +1,29 @@
-<h1 class="text-3xl leading-tight mb-3">Hi, {{ userName }}!</h1>
+<header class="min-h-40">
+  <h1 class="text-3xl leading-tight mb-3">Hi, {{ userName }}!</h1>
 
-<div *ngIf="userName.includes('Guest_')" class="flex flex-col mb-5 max-w-xs">
-  <p>Change username:</p>
-  <input
-    class="border-solid border-2 border-yellow-700 py-1 px-1 mb-1"
-    placeholder="Username"
-    type="text"
-    #input
-  />
+  <div class="flex flex-col mb-5 max-w-xs min-h-28">
+    @if (userName.includes('Guest_')) {
+    <p>Change username:</p>
+    <input
+      class="border-solid border-2 border-yellow-700 py-1 px-1 mb-1"
+      placeholder="Username"
+      type="text"
+      #input
+    />
 
-  <button
-    class="bg-yellow-700 hover:bg-yellow-600 text-white font-bold px-1 py-1"
-    (click)="onChangeUserName.emit(input.value)"
-  >
-    Continue
-  </button>
-</div>
+    <button
+      class="bg-yellow-700 hover:bg-yellow-600 text-white font-bold px-1 py-1"
+      (click)="onChangeUserName.emit(input.value)"
+    >
+      Continue
+    </button>
+    } @else {
+    <h3 class="text-xs leading-tight mb-3 text-gray-600">
+      Tips: <br />
+      - Click "Edit" to edit a file. <br />
+      - At editor's bottom left you can download the file. <br />
+      - At editor's bottom right you can see the list of collaborators.
+    </h3>
+    }
+  </div>
+</header>
