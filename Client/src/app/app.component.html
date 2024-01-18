@@ -1,0 +1,34 @@
+<style>
+  :host {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+
+  @media screen and (max-width: 650px) {
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: var(--red-to-pink-to-purple-horizontal-gradient);
+      margin-block: 1.5rem;
+    }
+  }
+</style>
+<app-navigation></app-navigation>
+
+<main class="main">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>

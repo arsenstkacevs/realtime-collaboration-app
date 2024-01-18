@@ -1,0 +1,10 @@
+<strong>Currently editing this file:</strong>
+
+<ul class="list-inside max-w-md space-y-1 list-disc">
+  <li *ngFor="let collaborator of collaborators">
+    @if(this.userName === collaborator.userName) {
+    {{ collaborator.userName }} (That's you) } @else {
+    {{ collaborator.userName }}
+    }
+  </li>
+</ul>

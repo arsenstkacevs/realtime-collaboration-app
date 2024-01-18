@@ -1,0 +1,56 @@
+<div class="container max-w-5xl px-4 mx-auto sm:px-8 py-8">
+  <app-user [userName]="userName" (onCreateUsername)="assignUserName($event)">
+  </app-user>
+
+  <h2 class="text-2xl leading-tight">Files</h2>
+
+  <table class="min-w-full leading-normal">
+    <thead app-table-head [tableHead]="tableHead"></thead>
+    <tbody>
+      <ng-container *ngFor="let file of files">
+        <tr
+          app-table-row
+          (onDeselect)="deselectFile($event)"
+          (onSelect)="selectFile($event)"
+          [file]="file"
+          [collaborators]="collaborators"
+          [selectedFileName]="selectedFileName"
+        ></tr>
+
+        <tr *ngIf="selectedFileName === file.fileName">
+          <td
+            [attr.colspan]="5"
+            class="px-5 py-5 text-sm bg-white border-b border-gray-200"
+          >
+            <div style="width: 100%">
+              <ngx-codemirror
+                [(ngModel)]="fileContent"
+                [options]="{
+                        lineNumbers: true,
+                        mode: 'application/json',
+                        theme: 'material',
+                      }"
+                (ngModelChange)="updateFileContent()"
+              ></ngx-codemirror>
+
+              <div class="flex justify-between">
+                <button
+                  (click)="downloadJson()"
+                  class="bg-yellow-700 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mt-2"
+                >
+                  Download
+                </button>
+
+                <app-collaborators
+                  [collaborators]="collaborators"
+                  [userName]="userName"
+                >
+                </app-collaborators>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

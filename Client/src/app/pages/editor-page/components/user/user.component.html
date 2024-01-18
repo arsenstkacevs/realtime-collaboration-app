@@ -1,0 +1,18 @@
+<h1 class="text-3xl leading-tight mb-3">Hi, {{ userName }}!</h1>
+
+<div *ngIf="userName.includes('Guest_')" class="flex flex-col mb-5 max-w-xs">
+  <p>Change username:</p>
+  <input
+    class="border-solid border-2 border-yellow-700 py-1 px-1 mb-1"
+    placeholder="Username"
+    type="text"
+    #input
+  />
+
+  <button
+    class="bg-yellow-700 hover:bg-yellow-600 text-white font-bold px-1 py-1"
+    (click)="onCreateUsername.emit(input.value)"
+  >
+    Continue
+  </button>
+</div>

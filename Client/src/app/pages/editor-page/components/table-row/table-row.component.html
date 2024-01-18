@@ -1,0 +1,44 @@
+<td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+  <div class="flex items-center">
+    <div class="flex-shrink-0">
+      <a href="#" class="relative block">
+        <img
+          alt="profil"
+          src="../../../assets/img/json-file-placeholder.png"
+          class="mx-auto object-cover rounded-full h-10 w-10"
+        />
+      </a>
+    </div>
+    <div class="ml-3">
+      <p class="text-gray-900 whitespace-no-wrap">
+        {{ file.fileName }}
+      </p>
+    </div>
+  </div>
+</td>
+<td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+  <p class="text-gray-900 whitespace-no-wrap" *ngIf="file.editAuthor">
+    {{ file.editDate + " by " + file.editAuthor }}
+  </p>
+</td>
+
+<td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+  @if (this.selectedFileName !== file.fileName) {
+  <button
+    href="#"
+    class="text-indigo-600 hover:text-indigo-900"
+    (click)="onSelect.emit(file.fileName)"
+  >
+    Edit
+  </button>
+  } @else {
+  <button
+    *ngIf="this.selectedFileName === file.fileName"
+    href="#"
+    class="text-indigo-600 hover:text-indigo-900"
+    (click)="onDeselect.emit(file.fileName)"
+  >
+    Close
+  </button>
+  }
+</td>
