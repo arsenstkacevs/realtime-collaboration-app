@@ -1,11 +1,11 @@
 <div class="container max-w-5xl px-4 mx-auto sm:px-8 py-8">
-  <app-user [userName]="userName" (onCreateUsername)="assignUserName($event)">
+  <app-user [userName]="userName" (onChangeUserName)="changeUserName($event)">
   </app-user>
 
   <h2 class="text-2xl leading-tight">Files</h2>
 
   <table class="min-w-full leading-normal">
-    <thead app-table-head [tableHead]="tableHead"></thead>
+    <thead app-table-head [tableHeadTitles]="tableHeadTitles"></thead>
     <tbody>
       <ng-container *ngFor="let file of files">
         <tr

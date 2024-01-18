@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './table-head.component.scss',
 })
 export class TableHeadComponent {
-  @Input() tableHead: string[];
+  @Input() tableHeadTitles: string[];
 }

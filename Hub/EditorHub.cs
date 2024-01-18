@@ -80,13 +80,13 @@ public class EditorHub : Microsoft.AspNetCore.SignalR.Hub
 
     public async Task UpdateFileContent(string fileName, string content, string userName)
     {   
-        var existingFile = FileStates.FirstOrDefault(f => f.FileName == fileName);
+        var currentFile = FileStates.FirstOrDefault(f => f.FileName == fileName);
         DateTime currentDateTime = DateTime.Now;
         string formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-        existingFile.Content = content;
-        existingFile.EditDate = formattedDateTime;
-        existingFile.EditAuthor = userName;
+        currentFile.Content = content;
+        currentFile.EditDate = formattedDateTime;
+        currentFile.EditAuthor = userName;
 
         await Clients.Group(fileName).SendAsync("FileUpdated", fileName, content);
     }

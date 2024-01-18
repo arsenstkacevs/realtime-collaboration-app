@@ -33,17 +33,12 @@ export class EditorPageComponent {
   fileContent: string;
   userName: string;
   collaborators: Collaborator[];
-  tableHead: string[] = ['File name', 'Last changed', ''];
+  tableHeadTitles: string[] = ['File name', 'Last changed', ''];
 
   constructor(
     private editorService: EditorService,
     private fileDownloadService: FileDownloadService
-  ) {}
-
-  ngOnInit(): void {
-    const randomNr = Math.floor(Math.random() * 1000000 + 1);
-    this.userName = `Guest_${randomNr}`;
-
+  ) {
     this.editorService.connection.on(
       'FileUpdated',
       (fileName: string, content: string) => {
@@ -63,7 +58,6 @@ export class EditorPageComponent {
     this.editorService.connection.on(
       'UserLeft',
       (collaborators: Collaborator[]) => {
-        console.log(collaborators);
         this.collaborators = collaborators;
       }
     );
@@ -71,13 +65,17 @@ export class EditorPageComponent {
     this.editorService.connection.on(
       'UserJoined',
       (collaborators: Collaborator[]) => {
-        console.log(collaborators);
         this.collaborators = collaborators;
       }
     );
   }
 
-  assignUserName(userName: string): void {
+  ngOnInit(): void {
+    const randomNr = Math.floor(Math.random() * 1000000 + 1);
+    this.userName = `Guest_${randomNr}`;
+  }
+
+  changeUserName(userName: string): void {
     this.userName = userName;
   }
 

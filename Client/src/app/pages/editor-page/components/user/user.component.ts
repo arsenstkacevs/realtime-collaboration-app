@@ -10,5 +10,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class UserComponent {
   @Input() userName: string;
-  @Output() onCreateUsername: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onChangeUserName: EventEmitter<string> = new EventEmitter<string>();
 }

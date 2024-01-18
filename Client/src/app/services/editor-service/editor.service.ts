@@ -17,21 +17,16 @@ export class EditorService {
     .build();
 
   constructor() {
-    this.start();
+    this.startConnection();
   }
 
-  private start() {
+  private startConnection() {
     this.connection
       .start()
       .then(() => this.connection.invoke('SendFileStates'))
       .catch((error) =>
         console.error('Error starting SignalR connection:', error)
       );
-
-    this.connection.on('FileUpdated', (fileName: string, content: string) => {
-      // Handle the file update event
-      console.log(`File updated: ${fileName}, Content: ${content}`);
-    });
   }
 
   addFileToGroup(fileName: string, userName: string): void {
