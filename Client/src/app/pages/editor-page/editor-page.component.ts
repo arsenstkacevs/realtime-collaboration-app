@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
@@ -27,6 +28,14 @@ import { CollaboratorsComponent } from './components/collaborators/collaborators
   ],
   templateUrl: './editor-page.component.html',
   styleUrl: './editor-page.component.scss',
+  animations: [
+    trigger('inOutAnimation', [
+      transition(':enter', [
+        style({ height: 0, opacity: 0 }),
+        animate('0.1s ease-out', style({ height: 300, opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class EditorPageComponent {
   files: File[];
